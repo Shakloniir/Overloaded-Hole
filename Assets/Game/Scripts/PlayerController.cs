@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float Speed;
+    public FloatingJoystick Joystick;
+    public CharacterController controller;
+    public RASCALSkinnedMeshCollider skinnedMeshCollider;
+
+    public void FixedUpdate()
     {
-        
+        Vector3 direction = Vector3.forward * Joystick.Vertical + Vector3.right * Joystick.Horizontal;
+        controller.Move(direction * Speed * Time.fixedDeltaTime);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }
