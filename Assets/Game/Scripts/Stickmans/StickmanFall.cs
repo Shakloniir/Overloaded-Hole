@@ -6,7 +6,7 @@ public class StickmanFall : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        GetComponent<Rigidbody>().isKinematic = false;
-        GetComponent<Collider>().isTrigger = false;
+        print("sa");
+        GetComponent<RagdollEnable>().RagdollModeOn();
     }
 }
