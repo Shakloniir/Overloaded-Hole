@@ -484,6 +484,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7307535121243759794, guid: ddac898415a254b2089f8644cf8758ad, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7307535121243759794, guid: ddac898415a254b2089f8644cf8758ad, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 4240a3ee722f441feba4c84c5af9de7b, type: 2}
@@ -541,8 +545,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.004797166, y: 0.0021162673, z: 0.002592512}
-  m_Center: {x: 0.0000050135422, y: 0.001058132, z: 0.00021044351}
+  m_Size: {x: 0.004797166, y: 0.0027802356, z: 0.0033444907}
+  m_Center: {x: 0.0000050135095, y: 0.0013901279, z: 0.00015133686}
 --- !u!144 &9118808726800680338
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -620,10 +624,10 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: abd8fd885568f463ca9d27d197f0c8a3, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.0010543306
-  m_Height: 0.00287506
+  m_Radius: 0.0011562431
+  m_Height: 0.0034991438
   m_Direction: 1
-  m_Center: {x: -0.00004891865, y: 0.0010273306, z: 8.731149e-10}
+  m_Center: {x: -0.000039574952, y: 0.0013393514, z: -0.000023560075}
 --- !u!144 &9118808727761436163
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -661,7 +665,7 @@ CharacterJoint:
     limit: 0
     bounciness: 0
     contactDistance: 0
-  m_EnableProjection: 0
+  m_EnableProjection: 1
   m_ProjectionDistance: 0.1
   m_ProjectionAngle: 180
   m_BreakForce: Infinity
@@ -701,10 +705,10 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: abd8fd885568f463ca9d27d197f0c8a3, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.0010543306
-  m_Height: 0.00287506
+  m_Radius: 0.0011562431
+  m_Height: 0.0034991438
   m_Direction: 1
-  m_Center: {x: -0.00004891865, y: 0.0010273306, z: 8.731149e-10}
+  m_Center: {x: -0.000039574952, y: 0.0013393514, z: -0.000023560075}
 --- !u!144 &9118808726247609796
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -783,8 +787,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.004772997, y: 0.0029665031, z: 0.002610933}
-  m_Center: {x: 0.0001750174, y: 0.00087675685, z: 0.00024672877}
+  m_Size: {x: 0.0047729965, y: 0.0029665031, z: 0.0051455563}
+  m_Center: {x: 0.00017501743, y: 0.00087676, z: 0.000031145148}
 --- !u!1 &3050796113801759132 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6114233391354567670, guid: ddac898415a254b2089f8644cf8758ad, type: 3}
@@ -816,10 +820,10 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: abd8fd885568f463ca9d27d197f0c8a3, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.0013812232
-  m_Height: 0.0031114824
+  m_Radius: 0.0017131752
+  m_Height: 0.0034263493
   m_Direction: 1
-  m_Center: {x: 0.0001035834, y: 0.0015557458, z: 0.000059249753}
+  m_Center: {x: 0.00010737355, y: 0.0015557478, z: -0.00011425525}
 --- !u!144 &9118808726165965789
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -897,10 +901,10 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: abd8fd885568f463ca9d27d197f0c8a3, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.001024596
-  m_Height: 0.0033723137
+  m_Radius: 0.0014673113
+  m_Height: 0.0033723132
   m_Direction: 1
-  m_Center: {x: -8.731149e-11, y: 0.0016861568, z: -0.00018151785}
+  m_Center: {x: -6.9849193e-10, y: 0.001686164, z: -0.00015327579}
 --- !u!144 &9118808726583945988
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -978,10 +982,10 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: abd8fd885568f463ca9d27d197f0c8a3, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.001024596
-  m_Height: 0.0033723137
+  m_Radius: 0.0014673113
+  m_Height: 0.0033723132
   m_Direction: 1
-  m_Center: {x: -8.731149e-11, y: 0.0016861568, z: -0.00018151785}
+  m_Center: {x: -6.9849193e-10, y: 0.001686164, z: -0.00015327579}
 --- !u!144 &9118808726254325236
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -1059,10 +1063,10 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: abd8fd885568f463ca9d27d197f0c8a3, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.0011719735
-  m_Height: 0.002734593
+  m_Radius: 0.0013641288
+  m_Height: 0.0030626685
   m_Direction: 1
-  m_Center: {x: -9.458745e-11, y: 0.0013672931, z: -0.000084992964}
+  m_Center: {x: -0.00012616896, y: 0.0013036588, z: -0.000019001367}
 --- !u!144 &9118808727516212132
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -1141,8 +1145,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.0032061795
-  m_Center: {x: 3.177547e-11, y: 0.0018493092, z: 0.0000000030177034}
+  m_Radius: 0.0034470551
+  m_Center: {x: 2.6744829e-11, y: 0.0018832238, z: 0.0000000028821887}
 --- !u!144 &9118808727504410765
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -1220,10 +1224,10 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: abd8fd885568f463ca9d27d197f0c8a3, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.0013812232
-  m_Height: 0.0031114824
+  m_Radius: 0.0017131752
+  m_Height: 0.0034263493
   m_Direction: 1
-  m_Center: {x: 0.0001035834, y: 0.0015557458, z: 0.000059249753}
+  m_Center: {x: 0.00010737355, y: 0.0015557478, z: -0.00011425525}
 --- !u!144 &9118808726055521962
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -1290,7 +1294,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!136 &9118808725963563657
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1337,7 +1341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b59c5097ea9d433f864cadfd74e3c18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionMode: 0
+  detectionMode: 1
   _rig: {fileID: 2288488112891333727}
 --- !u!114 &9118808725963563656
 MonoBehaviour:
@@ -1382,10 +1386,10 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: abd8fd885568f463ca9d27d197f0c8a3, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.0011719735
-  m_Height: 0.002734593
+  m_Radius: 0.0013641288
+  m_Height: 0.0030626685
   m_Direction: 1
-  m_Center: {x: -9.458745e-11, y: 0.0013672931, z: -0.000084992964}
+  m_Center: {x: -0.00012616896, y: 0.0013036588, z: -0.000019001367}
 --- !u!144 &9118808727146321307
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -1423,7 +1427,7 @@ CharacterJoint:
     limit: 0
     bounciness: 0
     contactDistance: 0
-  m_EnableProjection: 0
+  m_EnableProjection: 1
   m_ProjectionDistance: 0.1
   m_ProjectionAngle: 180
   m_BreakForce: Infinity

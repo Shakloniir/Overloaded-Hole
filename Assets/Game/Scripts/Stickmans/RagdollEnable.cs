@@ -17,6 +17,16 @@ public class RagdollEnable : MonoBehaviour
         References();
         GetRagdollBits();
         RagdollModeOff();
+
+        foreach (Rigidbody rigid in limbsRigidbodies)
+        {
+            rigid.collisionDetectionMode = detectionMode;
+
+        }
+        foreach (CharacterJoint col in joints)
+        {
+            col.enableProjection = true;
+        }
     }
 
     private void References()
@@ -45,7 +55,6 @@ public class RagdollEnable : MonoBehaviour
         foreach (Rigidbody rigid in limbsRigidbodies)
         {
             rigid.isKinematic = false;
-            rigid.collisionDetectionMode = detectionMode;
         }
 
         _mainCollider.enabled = false;
