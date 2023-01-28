@@ -13,5 +13,7 @@ public class PlayerController : MonoBehaviour
         Vector3 direction = Vector3.forward * Joystick.Vertical + Vector3.right * Joystick.Horizontal;
         controller.MovePosition(transform.position + direction * Time.deltaTime * Speed);
     }
+
+   
     
 }

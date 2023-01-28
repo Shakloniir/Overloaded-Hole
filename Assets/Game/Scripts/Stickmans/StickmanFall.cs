@@ -6,7 +6,9 @@ public class StickmanFall : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        print("sa");
-        GetComponent<RagdollEnable>().RagdollModeOn();
+        if (other.CompareTag("Player"))
+        {
+            GetComponent<RagdollEnable>().RagdollModeOn();
+        }
     }
 }
