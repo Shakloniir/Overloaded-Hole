@@ -31,7 +31,7 @@ public class BlendshapeCollider : MonoBehaviour
     }
     public void StickmanFall()
     {
-        counter++;
+        /*counter++;
         animator.SetTrigger("Glup");
         if (blendWeight <= 25)
         {
@@ -56,5 +56,6 @@ public class BlendshapeCollider : MonoBehaviour
         }
         rend.SetBlendShapeWeight(0, blendWeight);
         meshCollider.ImmediateUpdateColliders();
+        */
     }
 }

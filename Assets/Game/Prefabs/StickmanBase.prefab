@@ -791,8 +791,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.0047729965, y: 0.0029665031, z: 0.0051455563}
-  m_Center: {x: 0.00017501743, y: 0.00087676, z: 0.000031145148}
+  m_Size: {x: 0.0047729965, y: 0.0029665031, z: 0.0040177996}
+  m_Center: {x: 0.00017501744, y: 0.00087675994, z: -0.0000069432012}
 --- !u!1 &3050796113801759132 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6114233391354567670, guid: ddac898415a254b2089f8644cf8758ad, type: 3}
@@ -1149,8 +1149,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.0034470551
-  m_Center: {x: 2.6744829e-11, y: 0.0018832238, z: 0.0000000028821887}
+  m_Radius: 0.0027305335
+  m_Center: {x: -0.000023494058, y: 0.002041725, z: 0.00026723856}
 --- !u!144 &9118808727504410765
 CharacterJoint:
   m_ObjectHideFlags: 0
