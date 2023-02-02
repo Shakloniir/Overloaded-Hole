@@ -7,12 +7,12 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Kenar
-  m_Shader: {fileID: 4800000, guid: 7d713017fd9154b6f8c75e77444ea941, type: 3}
+  m_Name: Simple Fog
+  m_Shader: {fileID: 4800000, guid: c215ac411a6c34a4d9fc408e78f942ed, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 1
+  m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -63,8 +63,9 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
-    - _Glossiness: 1
+    - _Glossiness: 0.5
     - _GlossyReflections: 1
+    - _Intensity: 0.015
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -75,6 +76,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.33894184, g: 0.9339623, b: 0.14538093, a: 1}
+    - _Color: {r: 0.07843137, g: 0.6905639, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []

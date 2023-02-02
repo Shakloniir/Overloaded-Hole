@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Kenar
+  m_Name: Stickman 3
   m_Shader: {fileID: 4800000, guid: 7d713017fd9154b6f8c75e77444ea941, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -75,6 +75,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.33894184, g: 0.9339623, b: 0.14538093, a: 1}
+    - _Color: {r: 1, g: 0.5797376, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []

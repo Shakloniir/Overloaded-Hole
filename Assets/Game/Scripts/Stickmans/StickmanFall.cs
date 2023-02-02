@@ -10,9 +10,6 @@ public class StickmanFall : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             GetComponent<RagdollEnable>().RagdollModeOn();
-            if (!control)
-                other.GetComponent<BlendshapeCollider>().StickmanFall();
-            control = true;
         }
     }
 }
