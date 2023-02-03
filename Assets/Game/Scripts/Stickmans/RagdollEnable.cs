@@ -46,6 +46,7 @@ public class RagdollEnable : MonoBehaviour
         limbsRigidbodies = _rig.GetComponentsInChildren<Rigidbody>();
     }
 
+
     public void RagdollModeOn() 
     {
         foreach (Collider col in ragdollColliders)
@@ -57,7 +58,7 @@ public class RagdollEnable : MonoBehaviour
             rigid.isKinematic = false;
         }
 
-        _mainCollider.enabled = false;
+        _mainCollider.enabled = true;
         _animator.enabled = false;
     }
     public void RagdollModeOff()

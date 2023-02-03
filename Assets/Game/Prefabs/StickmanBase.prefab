@@ -341,7 +341,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ddac898415a254b2089f8644cf8758ad, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Stickman
       objectReference: {fileID: 0}
     - target: {fileID: 966897896487871693, guid: ddac898415a254b2089f8644cf8758ad, type: 3}
       propertyPath: m_Layer
@@ -1333,6 +1333,27 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &3237061715846502081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8236500877519859515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3bc3862abd9b4760a3a0be9bad8bd28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerColors:
+  - {r: 0.4862745, g: 0.85490197, b: 1, a: 1}
+  - {r: 0, g: 0.7176471, b: 1, a: 1}
+  - {r: 0.18039216, g: 0.5686275, b: 0.98039216, a: 1}
+  EnemyColors:
+  - {r: 1, g: 0, b: 0.019607844, a: 1}
+  - {r: 1, g: 0.5803922, b: 0, a: 1}
+  - {r: 1, g: 0.34509805, b: 0, a: 1}
+  defaultColor: {r: 0.47058824, g: 0.47058824, b: 0.47058824, a: 1}
 --- !u!114 &6228441827785325955
 MonoBehaviour:
   m_ObjectHideFlags: 0
