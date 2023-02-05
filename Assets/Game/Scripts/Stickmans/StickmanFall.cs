@@ -10,12 +10,10 @@ public class StickmanFall : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             GetComponent<RagdollEnable>().RagdollModeOn();
-            GetComponent<StickmanColors>().ChangeColor(false);
         }
         if (other.CompareTag("Enemy"))
         {
             GetComponent<RagdollEnable>().RagdollModeOn();
-            GetComponent<StickmanColors>().ChangeColor(true);
         }
     }
 }

@@ -9,7 +9,7 @@ public class RagdollEnable : MonoBehaviour
     public GameObject _rig;
 
     private Collider _mainCollider;
-    private Animator _animator;
+   // private Animator _animator;
 
 
     private void Start()
@@ -32,7 +32,7 @@ public class RagdollEnable : MonoBehaviour
     private void References()
     {
         _mainCollider = GetComponent<Collider>();
-        _animator = GetComponent<Animator>();
+       // _animator = GetComponent<Animator>();
     }
 
     CharacterJoint[] joints;
@@ -58,8 +58,8 @@ public class RagdollEnable : MonoBehaviour
             rigid.isKinematic = false;
         }
 
-        _mainCollider.enabled = true;
-        _animator.enabled = false;
+        _mainCollider.enabled = false;
+       // _animator.enabled = false;
     }
     public void RagdollModeOff()
     {
@@ -73,7 +73,7 @@ public class RagdollEnable : MonoBehaviour
         }
 
         _mainCollider.enabled = true;
-        _animator.enabled = true;
+        //_animator.enabled = true;
     }
 
 }
