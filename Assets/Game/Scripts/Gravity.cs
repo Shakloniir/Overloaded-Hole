@@ -13,15 +13,15 @@ public class Gravity : MonoBehaviour
         {
             if (hit && hit.transform != transform && hit.attachedRigidbody)
             {
-                if(hit.gameObject.GetComponent<SticmkanListControl>() != null)
+                if (hit.gameObject.GetComponent<SticmkanListControl>() != null)
                 {
-                    if (!hit.gameObject.GetComponent<SticmkanListControl>().IsInHole)
+                    if (!hit.gameObject.GetComponent<SticmkanListControl>().IsInHole && hit.gameObject.GetComponent<Gravity>() == null)
                     {
                         Vector3 difference = hit.transform.position - transform.position;
                         hit.attachedRigidbody.AddForce(difference.normalized * power, ForceMode.Force);
                     }
                 }
-                
+
             }
         }
     }

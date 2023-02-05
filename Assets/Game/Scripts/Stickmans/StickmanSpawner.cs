@@ -12,10 +12,17 @@ public class StickmanSpawner : MonoBehaviour
 
     int randomNumber;
 
+    private void Start()
+    {
+        for (int i = 0; currentStickmanCount < maxStickmanCount; i++)
+        {
+            currentStickmanCount++;
+            SpawnStickman();
+        }
+    }
     public void SpawnStickman()
     {
         randomNumber = Random.Range(0, spawnPoints.Length);
         GameObject stickman = Instantiate(stickmanPrefab, spawnPoints[randomNumber].position, spawnPoints[randomNumber].rotation);
-        stickman.transform.parent = null;
     }
 }

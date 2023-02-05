@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 5697511926846266788}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 2.92}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8720725092301272449}
@@ -81,11 +81,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ddac898415a254b2089f8644cf8758ad, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.135
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ddac898415a254b2089f8644cf8758ad, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.01
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ddac898415a254b2089f8644cf8758ad, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1519,6 +1519,28 @@ MonoBehaviour:
   - {r: 1, g: 0.5803922, b: 0, a: 1}
   - {r: 1, g: 0.34509805, b: 0, a: 1}
   defaultColor: {r: 0.47058824, g: 0.47058824, b: 0.47058824, a: 1}
+--- !u!195 &8063673651362084456
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8236500877519859515}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.32
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &8681213482223094270 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8721966611613623404, guid: ddac898415a254b2089f8644cf8758ad, type: 3}

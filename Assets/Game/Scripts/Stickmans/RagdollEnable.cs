@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class RagdollEnable : MonoBehaviour
 {
@@ -9,12 +10,17 @@ public class RagdollEnable : MonoBehaviour
     public GameObject _rig;
 
     private Collider _mainCollider;
-   // private Animator _animator;
+    // private Animator _animator;
+    private NavMeshAgent agent;
+
+    private void Awake()
+    {
+        References();
+    }
 
 
     private void Start()
     {
-        References();
         GetRagdollBits();
         RagdollModeOff();
 
@@ -32,7 +38,8 @@ public class RagdollEnable : MonoBehaviour
     private void References()
     {
         _mainCollider = GetComponent<Collider>();
-       // _animator = GetComponent<Animator>();
+        // _animator = GetComponent<Animator>();
+        agent = GetComponent<NavMeshAgent>();
     }
 
     CharacterJoint[] joints;
@@ -59,7 +66,8 @@ public class RagdollEnable : MonoBehaviour
         }
 
         _mainCollider.enabled = false;
-       // _animator.enabled = false;
+        // _animator.enabled = false;
+        agent.enabled = false;
     }
     public void RagdollModeOff()
     {
@@ -74,6 +82,7 @@ public class RagdollEnable : MonoBehaviour
 
         _mainCollider.enabled = true;
         //_animator.enabled = true;
+        agent.enabled = true;
     }
 
 }
