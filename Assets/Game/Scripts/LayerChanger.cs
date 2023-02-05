@@ -7,8 +7,7 @@ public class LayerChanger : MonoBehaviour
     public bool isPlayer;
     private void OnTriggerEnter(Collider other)
     {
-        int LayerIgnoreRaycast = LayerMask.NameToLayer("InHole");
-        other.gameObject.layer = LayerIgnoreRaycast;
+     
 
         if(other.GetComponent<SticmkanListControl>() != null)
         {
@@ -21,6 +20,9 @@ public class LayerChanger : MonoBehaviour
 
         if (isPlayer)
         {
+            int LayerIgnoreRaycast = LayerMask.NameToLayer("InHoleP");
+            other.gameObject.layer = LayerIgnoreRaycast;
+
             if (other.tag == "Stickman")
             {
                 FindObjectOfType<PlayerController>().Stickmans.Add(other.gameObject);
@@ -29,6 +31,8 @@ public class LayerChanger : MonoBehaviour
         }
         else
         {
+            int LayerIgnoreRaycast = LayerMask.NameToLayer("InHoleE");
+            other.gameObject.layer = LayerIgnoreRaycast;
             if (other.tag == "Stickman")
             {
                 FindObjectOfType<EnemyBlackHole>().caughtStickmen.Add(other.gameObject);

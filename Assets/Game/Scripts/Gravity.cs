@@ -5,6 +5,7 @@ public class Gravity : MonoBehaviour
 {
     public float radius;
     public float power;
+    public bool isPlayer;
     void FixedUpdate()
     {
         Vector3 explosionPos = transform.position;
@@ -15,11 +16,28 @@ public class Gravity : MonoBehaviour
             {
                 if (hit.gameObject.GetComponent<SticmkanListControl>() != null)
                 {
-                    if (!hit.gameObject.GetComponent<SticmkanListControl>().IsInHole && hit.gameObject.GetComponent<Gravity>() == null)
+                    if (isPlayer)
                     {
-                        Vector3 difference = hit.transform.position - transform.position;
-                        hit.attachedRigidbody.AddForce(difference.normalized * power, ForceMode.Force);
+                        int LayerIgnoreRaycast = LayerMask.NameToLayer("InHoleP");
+
+                        if (hit.gameObject.layer == LayerIgnoreRaycast)
+                        {
+                            Vector3 difference = hit.transform.position - transform.position;
+                            hit.attachedRigidbody.AddForce(difference.normalized * power, ForceMode.Force);
+                        }
+                            
                     }
+                    else
+                    {
+                        int LayerIgnoreRaycast = LayerMask.NameToLayer("InHoleE");
+
+                        if (hit.gameObject.layer == LayerIgnoreRaycast)
+                        {
+                            Vector3 difference = hit.transform.position - transform.position;
+                            hit.attachedRigidbody.AddForce(difference.normalized * power, ForceMode.Force);
+                        }
+                    }
+                   
                 }
 
             }

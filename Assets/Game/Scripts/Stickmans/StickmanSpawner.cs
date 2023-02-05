@@ -4,25 +4,36 @@ using UnityEngine;
 
 public class StickmanSpawner : MonoBehaviour
 {
-    public int maxStickmanCount;
-    public int currentStickmanCount;
+    public int maxStickmen;
+    public int currentStickmen;
      
-    [SerializeField] Transform[] spawnPoints;
+    [SerializeField] Transform[] spawnPositions;
     [SerializeField] GameObject stickmanPrefab;
 
     int randomNumber;
 
     private void Start()
     {
-        for (int i = 0; currentStickmanCount < maxStickmanCount; i++)
-        {
-            currentStickmanCount++;
-            SpawnStickman();
-        }
+        StartCoroutine(Spawn());
     }
-    public void SpawnStickman()
+
+    private IEnumerator Spawn()
     {
-        randomNumber = Random.Range(0, spawnPoints.Length);
-        GameObject stickman = Instantiate(stickmanPrefab, spawnPoints[randomNumber].position, spawnPoints[randomNumber].rotation);
+        while (true)
+        {
+            while (currentStickmen < maxStickmen)
+            {
+                float randomWaitTime = Random.Range(0.2f, 0.8f);
+                yield return new WaitForSeconds(randomWaitTime);
+
+                int randomIndex = Random.Range(0, spawnPositions.Length);
+                Transform spawnTransform = spawnPositions[randomIndex];
+                Instantiate(stickmanPrefab, spawnTransform.position, spawnTransform.rotation);
+
+                currentStickmen++;
+            }
+
+            yield return new WaitUntil(() => currentStickmen < maxStickmen);
+        }
     }
 }

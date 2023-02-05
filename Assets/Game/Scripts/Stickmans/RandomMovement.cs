@@ -1,84 +1,48 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class RivalBlackHole : MonoBehaviour
+public class RandomMovement : MonoBehaviour
 {
-    public Transform target;
-    public NavMeshAgent agent;
-    public List<GameObject> capturedStickmen = new List<GameObject>();
+    NavMeshAgent agent;
+    Vector3 randomDestination;
+    float timer = 0f;
+    float waitTime;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        randomDestination = RandomNavmeshLocation(50f);
+        waitTime = Random.Range(0, 0.1f);
     }
 
     void Update()
     {
-        GameObject nearestStickman = FindNearestStickman();
-        if (nearestStickman == null)
+        timer += Time.deltaTime;
+        if (timer >= waitTime)
         {
-            MoveTowardsTarget();
-        }
-        else
-        {
-            MoveTowardsStickman(nearestStickman);
-        }
-    }
-
-    GameObject FindNearestStickman()
-    {
-        GameObject[] stickmen = GameObject.FindGameObjectsWithTag("Stickman");
-        if (stickmen.Length == 0)
-        {
-            return null;
-        }
-
-        GameObject nearest = stickmen[0];
-        float minDistance = Vector3.Distance(transform.position, stickmen[0].transform.position);
-        for (int i = 1; i < stickmen.Length; i++)
-        {
-            float distance = Vector3.Distance(transform.position, stickmen[i].transform.position);
-            if (distance < minDistance)
+            if (agent.enabled)
             {
-                nearest = stickmen[i];
-                minDistance = distance;
+                if (!agent.pathPending && agent.remainingDistance < 0.3f)
+                {
+                    randomDestination = RandomNavmeshLocation(50f);
+                    agent.destination = randomDestination;
+                    waitTime = Random.Range(0,0.1f);
+                    timer = 0f;
+                }
             }
         }
-
-        return nearest;
     }
 
-    void MoveTowardsStickman(GameObject stickman)
+    Vector3 RandomNavmeshLocation(float radius)
     {
-        float distance = Vector3.Distance(transform.position, stickman.transform.position);
-        if (distance < agent.stoppingDistance)
+        Vector3 randomDirection = Random.insideUnitSphere * radius;
+        randomDirection += transform.position;
+        NavMeshHit hit;
+        Vector3 finalPosition = Vector3.zero;
+        if (NavMesh.SamplePosition(randomDirection, out hit, radius, 1))
         {
-            capturedStickmen.Add(stickman);
-            stickman.SetActive(false);
-            SortCapturedStickmen();
+            finalPosition = hit.position;
         }
-        else
-        {
-            agent.destination = stickman.transform.position;
-        }
-    }
-
-    void SortCapturedStickmen()
-    {
-        capturedStickmen.Sort((x, y) => Vector3.Distance(transform.position, x.transform.position)
-            .CompareTo(Vector3.Distance(transform.position, y.transform.position)));
-    }
-
-    void MoveTowardsTarget()
-    {
-        if (capturedStickmen.Count > 0)
-        {
-            agent.destination = capturedStickmen[0].transform.position;
-        }
-        else
-        {
-            agent.destination = target.position;
-        }
+        return finalPosition;
     }
 }
