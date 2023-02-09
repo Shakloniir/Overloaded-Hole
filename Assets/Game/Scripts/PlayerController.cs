@@ -10,10 +10,10 @@ public class PlayerController : MonoBehaviour
     public FloatingJoystick Joystick;
     public Rigidbody controller;
 
+    public Transform holeDropPose;
     public List<GameObject> Stickmans;
-    public List<GameObject> RobotParts;
-    public GameObject Robot;
-    public int robotStickmanCount;
+    public GameObject throwPose;
+    public GameObject libra;
 
     public Vector2 XBoundaries = new Vector2(-4, 10);
     public Vector2 ZBoundaries = new Vector2(-10, 10);
@@ -53,14 +53,15 @@ public class PlayerController : MonoBehaviour
     }   
     IEnumerator StickmanDrop()
     {
-        yield return new WaitForSeconds(0.5f);
-        for (int i = 0; i < Stickmans.Count; i++)
+        yield return new WaitForSeconds(0.2f);
+        for (int i = 0; i < Stickmans.Count;)
         {
-            Stickmans[0].transform.parent = Robot.transform;
-            Stickmans[0].transform.DOJump(RobotParts[robotStickmanCount].transform.position, 1, 1,0.5f);
+            if (Stickmans.Count == 0) break;
+            FindObjectOfType<StickmanSpawner>().currentStickmen--;
+            Stickmans[0].transform.parent = libra.transform;
+            Stickmans[0].transform.DOJump(throwPose.transform.position, 1, 1,0.5f);
             Stickmans.Remove(Stickmans[0]);
-            robotStickmanCount++;
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.1f);
         }
         EnableControl();
     }

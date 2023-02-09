@@ -8,7 +8,7 @@ public class InHole : MonoBehaviour
    
     private void OnTriggerExit(Collider other)
     {
-        int LayerIgnoreRaycast = LayerMask.NameToLayer("Default");
+        int LayerIgnoreRaycast = LayerMask.NameToLayer("Stickman");
         other.gameObject.layer = LayerIgnoreRaycast;
 
         if (other.GetComponent<SticmkanListControl>() != null)

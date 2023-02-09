@@ -1,11 +1,21 @@
 using UnityEngine;
 using System.Collections.Generic;
-
+using System.Collections;
+using DG.Tweening;
 public class EnemyBlackHole : MonoBehaviour
 {
     public float speed = 1f;
     public Transform target;
     public List<GameObject> caughtStickmen;
+
+    public GameObject throwPose;
+    public GameObject libra;
+
+    public bool disableControl;
+    [SerializeField] Gravity gravity;
+    [SerializeField] InHole hole;
+    [SerializeField] LayerChanger layerChanger;
+
 
     private void Start()
     {
@@ -14,6 +24,8 @@ public class EnemyBlackHole : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (disableControl) return;
+
         GameObject nearestStickman = GetNearestStickman();
 
         if (nearestStickman != null)
@@ -25,7 +37,7 @@ public class EnemyBlackHole : MonoBehaviour
             target = GameObject.FindWithTag("Target").transform;
         }
 
-        if (caughtStickmen.Count < 35)
+        if (caughtStickmen.Count < 15)
         {
             Vector3 direction = (target.position - transform.position).normalized;
             transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
@@ -58,5 +70,36 @@ public class EnemyBlackHole : MonoBehaviour
         }
 
         return nearestStickman;
+    }
+
+    public void EnableControl()
+    {
+        disableControl = false;
+        gravity.enabled = true;
+        hole.enabled = true;
+        layerChanger.enabled = true;
+    }
+    public void DisableControl()
+    {
+        disableControl = true;
+        gravity.enabled = false;
+        hole.enabled = false;
+        layerChanger.enabled = false;
+        StartCoroutine(StickmanDrop());
+    }
+    IEnumerator StickmanDrop()
+    {
+        yield return new WaitForSeconds(0.2f);
+        for (int i = 0; i < caughtStickmen.Count;)
+        {
+            if (caughtStickmen.Count == 0) break;
+
+            caughtStickmen[0].transform.parent = libra.transform;
+            FindObjectOfType<StickmanSpawner>().currentStickmen--;
+            caughtStickmen[0].transform.DOJump(throwPose.transform.position, 1, 1, 0.5f);
+            caughtStickmen.Remove(caughtStickmen[0]);
+            yield return new WaitForSeconds(0.1f);
+        }
+        EnableControl();
     }
 }

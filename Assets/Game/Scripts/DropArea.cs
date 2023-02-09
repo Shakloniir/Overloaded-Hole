@@ -15,5 +15,12 @@ public class DropArea : MonoBehaviour
                 other.GetComponentInParent<PlayerController>().DisableControl();
             }
         }
+        else
+        {
+            if (other.CompareTag("Enemy"))
+            {
+                other.GetComponentInParent<EnemyBlackHole>().DisableControl();
+            }
+        }
     }
 }
