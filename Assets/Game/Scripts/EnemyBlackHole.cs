@@ -93,7 +93,7 @@ public class EnemyBlackHole : MonoBehaviour
         for (int i = 0; i < caughtStickmen.Count;)
         {
             if (caughtStickmen.Count == 0) break;
-
+            FindObjectOfType<Terazi>().Drop(0.2f);
             caughtStickmen[0].transform.parent = libra.transform;
             FindObjectOfType<StickmanSpawner>().currentStickmen--;
             caughtStickmen[0].transform.DOJump(throwPose.transform.position, 1, 1, 0.5f);

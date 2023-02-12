@@ -57,6 +57,7 @@ public class PlayerController : MonoBehaviour
         for (int i = 0; i < Stickmans.Count;)
         {
             if (Stickmans.Count == 0) break;
+            FindObjectOfType<Terazi>().Drop(-0.2f);
             FindObjectOfType<StickmanSpawner>().currentStickmen--;
             Stickmans[0].transform.parent = libra.transform;
             Stickmans[0].transform.DOJump(throwPose.transform.position, 1, 1,0.5f);

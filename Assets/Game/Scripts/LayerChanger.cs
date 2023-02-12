@@ -7,13 +7,10 @@ public class LayerChanger : MonoBehaviour
     public bool isPlayer;
     private void OnTriggerEnter(Collider other)
     {
-     
-
         if(other.GetComponent<SticmkanListControl>() != null)
         {
             if (!other.GetComponent<SticmkanListControl>().IsInHole)
             {
-
                 other.GetComponent<SticmkanListControl>().IsInHole = true;
             }
         }
@@ -36,7 +33,7 @@ public class LayerChanger : MonoBehaviour
             if (other.tag == "Stickman")
             {
                 FindObjectOfType<EnemyBlackHole>().caughtStickmen.Add(other.gameObject);
-                other.GetComponentInParent<StickmanColors>().ChangeColor(true);
+                other.GetComponentInParent<StickmanColors>()?.ChangeColor(true);
             }
         }
     }
