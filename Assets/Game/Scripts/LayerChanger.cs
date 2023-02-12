@@ -23,7 +23,7 @@ public class LayerChanger : MonoBehaviour
             if (other.tag == "Stickman")
             {
                 FindObjectOfType<PlayerController>().Stickmans.Add(other.gameObject);
-                other.GetComponentInParent<StickmanColors>().ChangeColor(false);
+                other.GetComponentInParent<StickmanColors>()?.ChangeColor(false);
             }
         }
         else
