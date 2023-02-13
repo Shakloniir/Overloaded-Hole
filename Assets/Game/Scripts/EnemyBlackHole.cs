@@ -94,6 +94,7 @@ public class EnemyBlackHole : MonoBehaviour
         {
             if (caughtStickmen.Count == 0) break;
             FindObjectOfType<Terazi>().Drop(0.2f);
+            caughtStickmen[0].transform.tag = "Untagged";
             caughtStickmen[0].transform.parent = libra.transform;
             FindObjectOfType<StickmanSpawner>().currentStickmen--;
             caughtStickmen[0].transform.DOJump(throwPose.transform.position, 1, 1, 0.5f);
