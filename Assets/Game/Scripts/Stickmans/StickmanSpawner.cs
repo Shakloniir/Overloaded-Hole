@@ -23,7 +23,7 @@ public class StickmanSpawner : MonoBehaviour
         {
             while (currentStickmen < maxStickmen)
             {
-                float randomWaitTime = Random.Range(0.2f, 0.8f);
+                float randomWaitTime = Random.Range(0.1f, 0.3f);
                 yield return new WaitForSeconds(randomWaitTime);
 
                 int randomIndex = Random.Range(0, spawnPositions.Length);

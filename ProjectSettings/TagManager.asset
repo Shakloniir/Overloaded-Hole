@@ -7,6 +7,7 @@ TagManager:
   - Stickman
   - Enemy
   - Target
+  - FallArea
   layers:
   - Default
   - TransparentFX

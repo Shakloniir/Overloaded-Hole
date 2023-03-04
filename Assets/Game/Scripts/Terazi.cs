@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Terazi : MonoBehaviour
 {
@@ -14,18 +15,35 @@ public class Terazi : MonoBehaviour
     [SerializeField] float forceValue;
     [SerializeField] bool drop;
 
+    [SerializeField] TMP_Text playertxt;
+    int countP;
+
+    [SerializeField] TMP_Text enemytxt;
+    int countE;
+
     bool startEqual;
     private void Start()
     {
         playerFrame = 0.5f;
+        playertxt.text = countP + "LBS";
+        enemytxt.text = countE + "LBS";
     }
     void Update()
     {
+
         if (!startEqual)
             StartEqualizer();
         else
             ValueChanger();
 
+        if (playerFrame <= 0 &&!startEqual)
+        {
+            GameManager.instance.GameFinish = true;
+        }
+        if (playerFrame >= 1 && !startEqual)
+        {
+            GameManager.instance.GameFinish = true;
+        }
 
         playerFrame = anim.GetCurrentAnimatorStateInfo(0).normalizedTime;  //Get the current frame of animation
 
@@ -50,6 +68,7 @@ public class Terazi : MonoBehaviour
             StartForcevalue = 0;
             anim.SetFloat("time", StartForcevalue);
             startEqual = true;
+            GameManager.instance.GameFinish = false;
         }
     }
     public void Drop(float force)
@@ -76,5 +95,15 @@ public class Terazi : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
         drop = false;
+    }
+    public void PlayerText()
+    {
+        countP+=3;
+        playertxt.text = countP+"LBS";
+    }
+    public void EnemyText()
+    {
+        countE+=3;
+        enemytxt.text = countE + "LBS";
     }
 }

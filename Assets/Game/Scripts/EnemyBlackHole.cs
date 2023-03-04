@@ -24,6 +24,8 @@ public class EnemyBlackHole : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (GameManager.instance.GameFinish) return;
+
         if (disableControl) return;
 
         GameObject nearestStickman = GetNearestStickman();
@@ -93,7 +95,8 @@ public class EnemyBlackHole : MonoBehaviour
         for (int i = 0; i < caughtStickmen.Count;)
         {
             if (caughtStickmen.Count == 0) break;
-            FindObjectOfType<Terazi>().Drop(0.2f);
+            FindObjectOfType<Terazi>().Drop(0.1f);
+            FindObjectOfType<Terazi>().EnemyText();
             caughtStickmen[0].transform.tag = "Untagged";
             caughtStickmen[0].transform.parent = libra.transform;
             FindObjectOfType<StickmanSpawner>().currentStickmen--;

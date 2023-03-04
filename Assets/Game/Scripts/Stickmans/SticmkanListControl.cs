@@ -5,4 +5,8 @@ using UnityEngine;
 public class SticmkanListControl : MonoBehaviour
 {
     public bool IsInHole;
+    private void OnTriggerEnter(Collider other)
+    {
+        
+    }
 }

@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
 
     public void FixedUpdate()
     {
+        if (GameManager.instance.GameFinish) return;
+
         if (disableControl) return;
 
         Vector3 direction = Vector3.forward * Joystick.Vertical + Vector3.right * Joystick.Horizontal;
@@ -57,7 +59,8 @@ public class PlayerController : MonoBehaviour
         for (int i = 0; i < Stickmans.Count;)
         {
             if (Stickmans.Count == 0) break;
-            FindObjectOfType<Terazi>().Drop(-0.2f);
+            FindObjectOfType<Terazi>().Drop(-0.1f);
+            FindObjectOfType<Terazi>().PlayerText();
             FindObjectOfType<StickmanSpawner>().currentStickmen--;
             Stickmans[0].transform.tag = "Untagged";
             Stickmans[0].transform.parent = libra.transform;

@@ -1519,6 +1519,7 @@ MonoBehaviour:
   - {r: 1, g: 0.5803922, b: 0, a: 1}
   - {r: 1, g: 0.34509805, b: 0, a: 1}
   defaultColor: {r: 0.47058824, g: 0.47058824, b: 0.47058824, a: 1}
+  mat: {fileID: 2100000, guid: 4240a3ee722f441feba4c84c5af9de7b, type: 2}
 --- !u!195 &8063673651362084456
 NavMeshAgent:
   m_ObjectHideFlags: 0

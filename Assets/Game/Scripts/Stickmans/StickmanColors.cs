@@ -5,19 +5,23 @@ using DG.Tweening;
 
 public class StickmanColors : MonoBehaviour
 {
-    [Header ("Player Colors")]
+    [Header("Player Colors")]
 
     [SerializeField] Color[] PlayerColors;
     [SerializeField] Color[] EnemyColors;
     [SerializeField] Color defaultColor;
+    [SerializeField] Material mat;
+    Material defmat;
 
     SkinnedMeshRenderer rend;
+    Color selectedColor;
 
     int randomColor;
 
     private void Awake()
     {
         rend = GetComponentInChildren<SkinnedMeshRenderer>();
+        defmat = rend.material;
     }
 
 
@@ -29,13 +33,29 @@ public class StickmanColors : MonoBehaviour
     {
         if (!enemy)
         {
+            rend.material = mat;
             randomColor = Random.Range(0, PlayerColors.Length);
+            selectedColor = EnemyColors[randomColor];
             rend.material.DOColor(PlayerColors[randomColor], 0.5f);
         }
         else
         {
+            rend.material = mat;
             randomColor = Random.Range(0, EnemyColors.Length);
-            rend.material.DOColor(EnemyColors[randomColor],0.5f);
+            selectedColor = EnemyColors[randomColor];
+            rend.material.DOColor(EnemyColors[randomColor], 0.5f);
+        }
+    }
+    public void DropColor()
+    {
+        rend.material = defmat;
+        rend.material.DOColor(selectedColor, 0.5f);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "FallArea")
+        {
         }
     }
 }
