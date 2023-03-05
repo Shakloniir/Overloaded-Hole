@@ -25,8 +25,8 @@ public class Terazi : MonoBehaviour
     private void Start()
     {
         playerFrame = 0.5f;
-        playertxt.text = countP + "LBS";
-        enemytxt.text = countE + "LBS";
+        playertxt.text = countP + " LBS";
+        enemytxt.text = countE + " LBS";
     }
     void Update()
     {
@@ -36,11 +36,11 @@ public class Terazi : MonoBehaviour
         else
             ValueChanger();
 
-        if (playerFrame <= 0 &&!startEqual)
+        if (playerFrame <= 0.1 && startEqual)
         {
             GameManager.instance.GameFinish = true;
         }
-        if (playerFrame >= 1 && !startEqual)
+        if (playerFrame >= 0.9 && startEqual)
         {
             GameManager.instance.GameFinish = true;
         }
@@ -99,11 +99,11 @@ public class Terazi : MonoBehaviour
     public void PlayerText()
     {
         countP+=3;
-        playertxt.text = countP+"LBS";
+        playertxt.text = countP+" LBS";
     }
     public void EnemyText()
     {
         countE+=3;
-        enemytxt.text = countE + "LBS";
+        enemytxt.text = countE + " LBS";
     }
 }

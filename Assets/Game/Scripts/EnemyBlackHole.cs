@@ -39,7 +39,7 @@ public class EnemyBlackHole : MonoBehaviour
             target = GameObject.FindWithTag("Target").transform;
         }
 
-        if (caughtStickmen.Count < 15)
+        if (caughtStickmen.Count < 20)
         {
             Vector3 direction = (target.position - transform.position).normalized;
             transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
