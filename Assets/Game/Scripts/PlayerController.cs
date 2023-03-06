@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public Transform holeDropPose;
     public List<GameObject> Stickmans;
     public GameObject throwPose;
+    public GameObject throwPose2;
     public GameObject libra;
 
     public Vector2 XBoundaries = new Vector2(-4, 10);
@@ -52,19 +53,30 @@ public class PlayerController : MonoBehaviour
         hole.enabled = false;
         layerChanger.enabled = false;
         StartCoroutine(StickmanDrop());
-    }   
+    }
+    int counter;
     IEnumerator StickmanDrop()
     {
         yield return new WaitForSeconds(0.2f);
         for (int i = 0; i < Stickmans.Count;)
         {
             if (Stickmans.Count == 0) break;
-            FindObjectOfType<Terazi>().Drop(-0.1f);
-            FindObjectOfType<Terazi>().PlayerText();
+            //FindObjectOfType<Terazi>().Drop(-0.1f);
+            //FindObjectOfType<Terazi>().PlayerText();
             FindObjectOfType<StickmanSpawner>().currentStickmen--;
             Stickmans[0].transform.tag = "Untagged";
             Stickmans[0].transform.parent = libra.transform;
-            Stickmans[0].transform.DOJump(throwPose.transform.position, 1, 1,0.5f);
+
+            if (counter == 0)
+            {
+                counter++;
+                Stickmans[0].transform.DOJump(throwPose.transform.position, 1, 1, 0.5f);
+            }
+            else if(counter == 1)
+            {
+                counter = 0;
+                Stickmans[0].transform.DOJump(throwPose2.transform.position, 1, 1, 0.5f);
+            }
             Stickmans.Remove(Stickmans[0]);
             yield return new WaitForSeconds(0.1f);
         }

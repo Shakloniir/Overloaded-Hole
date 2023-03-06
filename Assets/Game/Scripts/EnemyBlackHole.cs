@@ -9,6 +9,7 @@ public class EnemyBlackHole : MonoBehaviour
     public List<GameObject> caughtStickmen;
 
     public GameObject throwPose;
+    public GameObject throwPose2;
     public GameObject libra;
 
     public bool disableControl;
@@ -89,18 +90,30 @@ public class EnemyBlackHole : MonoBehaviour
         layerChanger.enabled = false;
         StartCoroutine(StickmanDrop());
     }
+    int counter;
     IEnumerator StickmanDrop()
     {
         yield return new WaitForSeconds(0.2f);
         for (int i = 0; i < caughtStickmen.Count;)
         {
             if (caughtStickmen.Count == 0) break;
-            FindObjectOfType<Terazi>().Drop(0.1f);
-            FindObjectOfType<Terazi>().EnemyText();
+            //FindObjectOfType<Terazi>().Drop(0.1f);
+            //FindObjectOfType<Terazi>().EnemyText();
             caughtStickmen[0].transform.tag = "Untagged";
             caughtStickmen[0].transform.parent = libra.transform;
             FindObjectOfType<StickmanSpawner>().currentStickmen--;
-            caughtStickmen[0].transform.DOJump(throwPose.transform.position, 1, 1, 0.5f);
+
+            if (counter == 0)
+            {
+                counter++;
+                caughtStickmen[0].transform.DOJump(throwPose.transform.position, 1, 1, 0.5f);
+            }
+            else if (counter == 1)
+            {
+                counter = 0;
+                caughtStickmen[0].transform.DOJump(throwPose2.transform.position, 1, 1, 0.5f);
+            }
+
             caughtStickmen.Remove(caughtStickmen[0]);
             yield return new WaitForSeconds(0.1f);
         }
