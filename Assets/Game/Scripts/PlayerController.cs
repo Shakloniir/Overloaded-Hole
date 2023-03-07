@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
             //FindObjectOfType<Terazi>().PlayerText();
             FindObjectOfType<StickmanSpawner>().currentStickmen--;
             Stickmans[0].transform.tag = "Untagged";
-            Stickmans[0].transform.parent = libra.transform;
+            //Stickmans[0].transform.parent = libra.transform;
 
             stickmancounter++;
 
@@ -85,22 +85,78 @@ public class PlayerController : MonoBehaviour
             Stickmans.Remove(Stickmans[0]);
             yield return new WaitForSeconds(0.1f);
 
-            
-            if (stickmancounter > 100)
+
+            if (stickmancounter < 20)
             {
-                stickmen.SetBool("5", true);
+                stickmen.SetBool("1", true);
             }
-            else if (stickmancounter > 70)
+            else if (stickmancounter < 30)
             {
-                stickmen.SetBool("4", true);
+                stickmen.SetBool("1", true);
+                stickmen.SetBool("2", true);
             }
-            else if (stickmancounter > 45)
+            else if (stickmancounter < 40)
             {
+                stickmen.SetBool("1", true);
+                stickmen.SetBool("2", true);
                 stickmen.SetBool("3", true);
             }
-            else if(stickmancounter > 15)
+            else if (stickmancounter < 50)
             {
-                stickmen.SetBool("2",true);
+                stickmen.SetBool("1", true);
+                stickmen.SetBool("2", true);
+                stickmen.SetBool("3", true);
+                stickmen.SetBool("4", true);
+            }
+            else if (stickmancounter < 60)
+            {
+                stickmen.SetBool("1", true);
+                stickmen.SetBool("2", true);
+                stickmen.SetBool("3", true);
+                stickmen.SetBool("4", true);
+                stickmen.SetBool("5", true);
+            }
+            else if (stickmancounter < 70)
+            {
+                stickmen.SetBool("1", true);
+                stickmen.SetBool("2", true);
+                stickmen.SetBool("3", true);
+                stickmen.SetBool("4", true);
+                stickmen.SetBool("5", true);
+                stickmen.SetBool("6", true);
+            }
+            else if (stickmancounter < 80)
+            {
+                stickmen.SetBool("1", true);
+                stickmen.SetBool("2", true);
+                stickmen.SetBool("3", true);
+                stickmen.SetBool("4", true);
+                stickmen.SetBool("5", true);
+                stickmen.SetBool("6", true);
+                stickmen.SetBool("7", true);
+            }
+            else if (stickmancounter < 90)
+            {
+                stickmen.SetBool("1", true);
+                stickmen.SetBool("2", true);
+                stickmen.SetBool("3", true);
+                stickmen.SetBool("4", true);
+                stickmen.SetBool("5", true);
+                stickmen.SetBool("6", true);
+                stickmen.SetBool("7", true);
+                stickmen.SetBool("8", true);
+            }
+            else if (stickmancounter < 100)
+            {
+                stickmen.SetBool("1", true);
+                stickmen.SetBool("2", true);
+                stickmen.SetBool("3", true);
+                stickmen.SetBool("4", true);
+                stickmen.SetBool("5", true);
+                stickmen.SetBool("6", true);
+                stickmen.SetBool("7", true);
+                stickmen.SetBool("8", true);
+                stickmen.SetBool("9", true);
             }
 
         }

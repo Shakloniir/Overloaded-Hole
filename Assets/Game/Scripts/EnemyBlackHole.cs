@@ -41,7 +41,7 @@ public class EnemyBlackHole : MonoBehaviour
             target = GameObject.FindWithTag("Target").transform;
         }
 
-        if (caughtStickmen.Count < 20)
+        if (caughtStickmen.Count < 25)
         {
             Vector3 direction = (target.position - transform.position).normalized;
             transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
@@ -101,7 +101,7 @@ public class EnemyBlackHole : MonoBehaviour
             //FindObjectOfType<Terazi>().Drop(0.1f);
             //FindObjectOfType<Terazi>().EnemyText();
             caughtStickmen[0].transform.tag = "Untagged";
-            caughtStickmen[0].transform.parent = libra.transform;
+            //caughtStickmen[0].transform.parent = libra.transform;
             FindObjectOfType<StickmanSpawner>().currentStickmen--;
 
             stickmancounter++;
@@ -121,21 +121,78 @@ public class EnemyBlackHole : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
 
-        if (stickmancounter > 100)
+
+        if (stickmancounter < 15)
         {
-            stickmen.SetBool("5", true);
+            stickmen.SetBool("1", true);
         }
-        else if (stickmancounter > 70)
+        else if (stickmancounter < 25)
         {
-            stickmen.SetBool("4", true);
+            stickmen.SetBool("1", true);
+            stickmen.SetBool("2", true);
         }
-        else if (stickmancounter > 45)
+        else if (stickmancounter < 35)
         {
+            stickmen.SetBool("1", true);
+            stickmen.SetBool("2", true);
             stickmen.SetBool("3", true);
         }
-        else if (stickmancounter > 15)
+        else if (stickmancounter < 45)
         {
+            stickmen.SetBool("1", true);
             stickmen.SetBool("2", true);
+            stickmen.SetBool("3", true);
+            stickmen.SetBool("4", true);
+        }
+        else if (stickmancounter < 55)
+        {
+            stickmen.SetBool("1", true);
+            stickmen.SetBool("2", true);
+            stickmen.SetBool("3", true);
+            stickmen.SetBool("4", true);
+            stickmen.SetBool("5", true);
+        }
+        else if (stickmancounter < 65)
+        {
+            stickmen.SetBool("1", true);
+            stickmen.SetBool("2", true);
+            stickmen.SetBool("3", true);
+            stickmen.SetBool("4", true);
+            stickmen.SetBool("5", true);
+            stickmen.SetBool("6", true);
+        }
+        else if (stickmancounter < 75)
+        {
+            stickmen.SetBool("1", true);
+            stickmen.SetBool("2", true);
+            stickmen.SetBool("3", true);
+            stickmen.SetBool("4", true);
+            stickmen.SetBool("5", true);
+            stickmen.SetBool("6", true);
+            stickmen.SetBool("7", true);
+        }
+        else if (stickmancounter < 85)
+        {
+            stickmen.SetBool("1", true);
+            stickmen.SetBool("2", true);
+            stickmen.SetBool("3", true);
+            stickmen.SetBool("4", true);
+            stickmen.SetBool("5", true);
+            stickmen.SetBool("6", true);
+            stickmen.SetBool("7", true);
+            stickmen.SetBool("8", true);
+        }
+        else if (stickmancounter < 95)
+        {
+            stickmen.SetBool("1", true);
+            stickmen.SetBool("2", true);
+            stickmen.SetBool("3", true);
+            stickmen.SetBool("4", true);
+            stickmen.SetBool("5", true);
+            stickmen.SetBool("6", true);
+            stickmen.SetBool("7", true);
+            stickmen.SetBool("8", true);
+            stickmen.SetBool("9", true);
         }
 
         EnableControl();
