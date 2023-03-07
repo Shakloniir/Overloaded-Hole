@@ -17,7 +17,8 @@ public class EnemyBlackHole : MonoBehaviour
     [SerializeField] InHole hole;
     [SerializeField] LayerChanger layerChanger;
 
-
+    [SerializeField] Animator stickmen;
+    [SerializeField] int stickmancounter;
     private void Start()
     {
         caughtStickmen = new List<GameObject>();
@@ -103,6 +104,8 @@ public class EnemyBlackHole : MonoBehaviour
             caughtStickmen[0].transform.parent = libra.transform;
             FindObjectOfType<StickmanSpawner>().currentStickmen--;
 
+            stickmancounter++;
+
             if (counter == 0)
             {
                 counter++;
@@ -117,6 +120,24 @@ public class EnemyBlackHole : MonoBehaviour
             caughtStickmen.Remove(caughtStickmen[0]);
             yield return new WaitForSeconds(0.1f);
         }
+
+        if (stickmancounter > 100)
+        {
+            stickmen.SetBool("5", true);
+        }
+        else if (stickmancounter > 70)
+        {
+            stickmen.SetBool("4", true);
+        }
+        else if (stickmancounter > 45)
+        {
+            stickmen.SetBool("3", true);
+        }
+        else if (stickmancounter > 15)
+        {
+            stickmen.SetBool("2", true);
+        }
+
         EnableControl();
     }
 }

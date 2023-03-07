@@ -24,6 +24,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] InHole hole;
     [SerializeField] LayerChanger layerChanger;
 
+    [SerializeField] Animator stickmen;
+    [SerializeField] int stickmancounter;
+
     public void FixedUpdate()
     {
         if (GameManager.instance.GameFinish) return;
@@ -67,6 +70,8 @@ public class PlayerController : MonoBehaviour
             Stickmans[0].transform.tag = "Untagged";
             Stickmans[0].transform.parent = libra.transform;
 
+            stickmancounter++;
+
             if (counter == 0)
             {
                 counter++;
@@ -79,6 +84,25 @@ public class PlayerController : MonoBehaviour
             }
             Stickmans.Remove(Stickmans[0]);
             yield return new WaitForSeconds(0.1f);
+
+            
+            if (stickmancounter > 100)
+            {
+                stickmen.SetBool("5", true);
+            }
+            else if (stickmancounter > 70)
+            {
+                stickmen.SetBool("4", true);
+            }
+            else if (stickmancounter > 45)
+            {
+                stickmen.SetBool("3", true);
+            }
+            else if(stickmancounter > 15)
+            {
+                stickmen.SetBool("2",true);
+            }
+
         }
         EnableControl();
     }
